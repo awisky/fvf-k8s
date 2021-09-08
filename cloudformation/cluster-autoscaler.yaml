@@ -6,7 +6,7 @@ metadata:
     k8s-addon: cluster-autoscaler.addons.k8s.io
     k8s-app: cluster-autoscaler
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::963535213850:role/OdooClusterAutoscaller #change the arn role
+    eks.amazonaws.com/role-arn: arn:aws:iam::963535213850:role/OdooAutoScaler #change the arn role
   name: cluster-autoscaler
   namespace: kube-system
 

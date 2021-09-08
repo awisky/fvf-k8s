@@ -1,0 +1,22 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: odoo-cluster
+  region: sa-east-1
+  version: "1.20"
+  tags:
+    k8s.io/cluster-autoscaler/enabled: "true"
+    k8s.io/cluster-autoscaler/odoo-cluster: "owned"
+availabilityZones:
+  - sa-east-1a
+  - sa-east-1c
+managedNodeGroups:
+  - name: managed-nodes
+    labels:
+      role: managed-nodes
+    instanceType: t3a.micro
+    minSize: 4
+    maxSize: 30
+    desiredCapacity: 4
+    volumeSize: 10

@@ -1,0 +1,21 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-loadbalancer
+  namespace: traefik-system
+  annotations:
+    traefik.ingress.kubernetes.io/affinity: "true"
+    traefik.ingress.kubernetes.io/session-cookie-name: "sticky"
+spec:
+  type: LoadBalancer
+  selector:
+    app: traefik
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8000
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 4443
